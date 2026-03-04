@@ -12,13 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const todoList = TodoList.getInstance()
   const updateDOM = () => {
+    DOM.todoList.innerHTML = ""
     todoList.items.forEach((item) => {
       const li = document.createElement("li")
       li.className = "todo-item"
-      li.innerHTML = `
-        <span>${item.text}</span>
-        <button class="delete-btn">Eliminar</button>
-      `
+      const span = document.createElement("span")
+      span.textContent = item.text
+      const button = document.createElement("button")
+      button.className = "delete-btn"
+      button.textContent = "Eliminar"
+      li.appendChild(span)
+      li.appendChild(button)
       DOM.todoList.appendChild(li)
     })
   }
