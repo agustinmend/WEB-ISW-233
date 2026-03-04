@@ -32,7 +32,7 @@ export class TodoList {
 
   add(item) {
     const array = Array.from(this.#data);
-    const itemExists = array.filter((t) => t.equals(item)).length > 1;
+    const itemExists = array.filter((t) => t.equals(item)).length > 0;
     console.log("Asdas");
     if (!itemExists) {
       this.#data.add(item);
